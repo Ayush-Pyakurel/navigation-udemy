@@ -2,10 +2,14 @@ import Button from './Components/Button';
 import { GoBell } from 'react-icons/go';
 
 function App() {
+  const handleClick = () => {
+    console.log('first');
+  };
+
   return (
     <div className='App'>
       <div>
-        <Button success rounded outline>
+        <Button success rounded outline onClick={handleClick}>
           <GoBell />
           Payment Successful
         </Button>

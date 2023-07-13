@@ -9,6 +9,7 @@ function Button({
   danger,
   outline,
   rounded,
+  ...rest
 }) {
   // const classes = className('px-3 py-1.5 border', {
   //   'border-blue-500 bg-blue-500 text-white': primary,
@@ -51,7 +52,14 @@ function Button({
     'rounded-full': rounded,
   });
 
-  return <button className={classes}>{children}</button>;
+  /* Important trick */
+  // ...rest variable name can be anything, but the purpose of this syntax is to pass all the different EventHandlers without manually adding one by one, ...rest will capture different event handlers passed as props with single ...rest
+
+  return (
+    <button {...rest} className={classes}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;
