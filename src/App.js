@@ -1,37 +1,27 @@
-import Button from './Components/Button';
-import { GoBell } from 'react-icons/go';
+import Accordion from './Components/Accordion';
 
 function App() {
-  const handleClick = () => {
-    console.log('first');
-  };
+  const items = [
+    {
+      label: 'What is React?',
+      content:
+        'React is JavaScript library to create a interactive web application',
+    },
+    {
+      label: 'What is State in react?',
+      content:
+        'The state is a built-in React object that is used to contain data or information about the component.',
+    },
+    {
+      label: 'What is Props in React?',
+      content:
+        'Props stand for "Properties." They are read-only components. It is an object which stores the value of attributes of a tag and work similar to the HTML attributes. It gives a way to pass data from one component to other components. It is similar to function arguments.',
+    },
+  ];
 
   return (
     <div className='App'>
-      <div>
-        <Button success rounded outline onClick={handleClick}>
-          <GoBell />
-          Payment Successful
-        </Button>
-      </div>
-      <div>
-        <Button danger outline>
-          Cancel the order
-        </Button>
-      </div>
-      <div>
-        <Button warning>See Deals</Button>
-      </div>
-      <div>
-        <Button secondary outline>
-          Hide Ads
-        </Button>
-      </div>
-      <div>
-        <Button primary outline rounded>
-          Hello
-        </Button>
-      </div>
+      <Accordion items={items} />
     </div>
   );
 }
