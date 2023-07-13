@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { GoChevronDown } from 'react-icons/go';
 
-const Dropdown = ({ options }) => {
+const Dropdown = ({ options, onSelect, selectedOption }) => {
   const [showOption, setShowOption] = useState(false);
-  const [selectedOption, setSelectedOption] = useState();
 
   const option = options.map((item, index) => {
     return (
-      <li key={index} onClick={() => handleLabelSelect(index)}>
+      <li key={item.value} onClick={() => handleLabelSelect(index)}>
         {item.label}
       </li>
     );
@@ -21,19 +20,14 @@ const Dropdown = ({ options }) => {
   // event handler
   const handleLabelSelect = (index) => {
     setShowOption(false);
-    setSelectedOption(options[index]);
+    // prop from app
+    onSelect(index);
   };
-
-  const selectedValue = selectedOption ? (
-    selectedOption.label
-  ) : (
-    <span>Select</span>
-  );
 
   return (
     <div>
       <h1 onClick={handleClick} className='flex items-center pointer'>
-        {selectedValue} <GoChevronDown />
+        {selectedOption?.label || 'Select...'} <GoChevronDown />
       </h1>
 
       {showOption && <ul>{option}</ul>}
