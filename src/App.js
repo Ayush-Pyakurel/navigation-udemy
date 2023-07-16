@@ -1,5 +1,13 @@
+import useNavigationContext from './hooks/navigationContexHook';
+
 function App() {
-  return <div className='App'></div>;
+  const { name } = useNavigationContext();
+
+  return (
+    <div className='App'>
+      <h1>{name}</h1>
+    </div>
+  );
 }
 
 export default App;
