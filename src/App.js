@@ -1,11 +1,16 @@
+import Link from './Components/Link';
 import useNavigationContext from './hooks/navigationContexHook';
 
 function App() {
-  const { name } = useNavigationContext();
+  const { navigate } = useNavigationContext();
 
   return (
     <div className='App'>
-      <h1>{name}</h1>
+      <div>
+        <Link to={'/accordion'}>Go to accordion</Link>
+        <br />
+        <button onClick={() => navigate('/dropdown')}>Go to dropdown</button>
+      </div>
     </div>
   );
 }
